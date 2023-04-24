@@ -34,7 +34,7 @@ function SearchPage(props) {
       const trimmedQuery = event.target.value.trim();
       if (trimmedQuery) {
         try {
-          const books = await search(event.target.value.trim(), MAX_RESULTS);
+          const books = await search(trimmedQuery, MAX_RESULTS);
           setSearchResults(books);
         } catch (err) {
           console.error(err);

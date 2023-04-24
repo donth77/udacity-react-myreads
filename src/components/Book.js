@@ -43,7 +43,6 @@ function Book(props) {
       end: (item, monitor) => {
         const dropResult = monitor.getDropResult();
         if (item && dropResult) {
-          // toast.success(`"${bookData.title}" in ${SHELF_STR[dropResult.shelf]}`);
           updateShelf(dropResult.shelf);
         }
       },
