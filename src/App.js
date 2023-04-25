@@ -9,7 +9,6 @@ import MainPage from "./pages/MainPage";
 
 function App() {
   const [allBooks, setAllBooks] = useState([]);
-  const [triggerFetch, setTrigger] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
   const [modalBook, setModalBook] = useState(null);
@@ -27,7 +26,7 @@ function App() {
       .catch((err) => {
         console.error(err);
       });
-  }, [triggerFetch]);
+  }, []);
 
   function handleUpdateShelf(bookData, newShelf) {
     setAllBooks([
@@ -37,12 +36,6 @@ function App() {
         shelf: newShelf,
       },
     ]);
-
-    setTimeout(() => {
-      // UI was optimistically updated
-      // Retrigger the fetch to reflect the true state of data in the backend
-      setTrigger(!triggerFetch);
-    }, 150);
   }
 
   function openModal(bookData) {
